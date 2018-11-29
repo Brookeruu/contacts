@@ -1,0 +1,25 @@
+<h3>Add contact to book</h3>
+
+<form class="form-group" action="/output" method="post">
+  <label for="first">First name:</label>
+  <input class="form-control" type="text" name="first_name" value="">
+  <label for="last">Last name:</label>
+  <input class="form-control" type="text" name="last_name" value="">
+  <label for="first">Job:</label>
+  <input class="form-control" type="text" name="job" value="">
+  <label for="first">Company:</label>
+  <input class="form-control" type="text" name="company" value="">
+  <label for="first">Contact type:</label>
+  <input class="form-control" type="text" name="contact_type" value="">
+
+
+  <button type="submit" name="button">Add Contact</button>
+
+</form>
+
+<h1>Contacts</h1>
+<ul>
+  <% @address_book.each do |contact| %>
+    <li><a href="output/<%= contact.id %>"><%= contact.first_name %> <%= contact.last_name %></a></li>
+  <% end %>
+</ul>
