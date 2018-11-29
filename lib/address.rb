@@ -1,6 +1,8 @@
-require('contact')
+require('./lib/contact')
 
 class Address < Contact
+  @@addresses = []
+
   attr_accessor :street, :city, :state, :zip, :address_type
   attr_reader :id
 
@@ -11,7 +13,14 @@ class Address < Contact
     @zip = attributes.fetch(:zip)
     @address_type = attributes.fetch(:address_type)
     @id = attributes.fetch(:id)
+  end
 
+  def save()
+    @@addresses.push(self)
+  end
+
+  def self.all
+    @@addresses    
   end
 
 

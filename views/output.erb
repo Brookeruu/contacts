@@ -2,3 +2,35 @@
 <h2>Job: <%= @job %></h2>
 <h2>Company: <%= @company %> </h2>
 <h2>Contact Type: <%= @contact_type %></h2>
+
+<ul>
+  <% @address.each do |address| %>
+      <% if address.id == @id %>
+    <li> <%= address.address_type %>: <%= address.street %>, <%= address.city %>, <%= address.state %>, <%= address.zip %> </li>
+    <% end %>
+  <% end %>
+</ul>
+
+
+<a href="/address/<%= @id %>">Add Address</a>
+
+<form style="<%= @display %>" class="form-group" action="/address_update/<%= @id %>">
+  <h2>Add Address</h2>
+  <label for="street">Street:</label>
+  <input class="form-control" type="text" name="street" value="">
+  <label for="city">City:</label>
+  <input class="form-control" type="text" name="city" value="">
+  <label for="state">State:</label>
+  <input class="form-control" type="text" name="state" value="">
+  <label for="zip">Zip:</label>
+  <input class="form-control" type="text" name="zip" value="">
+  <label for="address_type">Address Type</label>
+  <select class="form-control" for="address_type" name="address_type">
+  <option class="form-control" type="text"  value="">Home</option>
+    <option class="form-control" type="text"  value="">Work</option>
+  </select>
+
+
+  <button type="submit" name="button">Add Contact</button>
+
+</form>
