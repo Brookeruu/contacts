@@ -16,10 +16,19 @@ describe('Contact') do
   end
 
   describe('.all') do
-    it('show empty array') do
+    it('dislay empty array') do
       expect(Contact.all()).to(eq([]))
     end
   end
 
+  describe('#save') do
+    it('add object to address_book') do
+      person = Contact.new({:first_name=> 'Teal', :last_name=> 'Hydro', :job=> 'Hydrator', :company=> "Flask", :contact_type=> 'Work'})
+      person.save
+      # binding.pry
+      expect(Contact.all()).to(eq([person]))
+      expect(Contact.all[0].first_name).to(eq("Teal"))
+    end
+  end
 
 end
