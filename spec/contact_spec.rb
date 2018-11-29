@@ -14,4 +14,12 @@ describe('Contact') do
       expect(person1.contact_type()).to(eq("Work"))
     end
   end
+
+  describe('.all') do
+    it('show empty array') do
+      expect(Contact.all()).to(eq([]))
+    end
+  end
+
+
 end

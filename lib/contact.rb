@@ -9,8 +9,14 @@ class Contact
     @job = attributes.fetch(:job)
     @company = attributes.fetch(:company)
     @contact_type = attributes.fetch(:contact_type)
-
   end
 
+  def self.all
+    @@address_book
+  end
+
+  def save
+    @@address_book.push(self)
+  end
 
 end
